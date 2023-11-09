@@ -2,11 +2,16 @@
 
 bundle install
 
-pg_restore -U username -d new_database_name -1 -v "test_db_development.backup" //to import DB
+//pg_restore -U username -d new_database_name -1 -v "test_db_development.backup" to import DB if already have
 
-rspec spec/
+sudo docker-compose build
+sudo docker-compose up
+sudo docker-compose run app rails db:create
+sudo docker-compose run app rails db:migrate
+sudo docker-compose run app rails db:seed
+sudo docker-compose run app rails db:migrate
 
-details testing with postman:
+*details testing with postman:
 
 localhost,lvh.me is public tenant
 vn.lvh.me is vn tenant

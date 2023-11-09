@@ -22,10 +22,15 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: long
   password: password1
+  host: db
+  port: 5432
 
 development:
   <<: *default
   database: test_db_development
+  username: long
+  password: password1
+  host: db
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
