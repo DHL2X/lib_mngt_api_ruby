@@ -4,7 +4,7 @@ module V1
         
         # Get /api/book
         def index
-            books = Book.all
+            books = Book.includes(:author).all #fixing N+1 query prob
             book_json_array = books.map { |book| BookRepresenter.new(book).as_json }
             render json: book_json_array
         rescue => e
