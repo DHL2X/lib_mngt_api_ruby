@@ -15,7 +15,11 @@ class BookRepresenter
     private
     attr_reader :book
     def authors_name(book)
-        authors_names = book.authors.map { |author| "#{author.fname} #{author.lname}"}
+        authors_names = book.authors.map { |author| "#{full_name(author.fname,author.lname)}"}
         authors_names.join(', ')
+    end
+
+    def full_name(first, *rest)
+        [first, *rest].join(" ")
     end
 end
