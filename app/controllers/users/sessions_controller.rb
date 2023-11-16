@@ -4,7 +4,7 @@ class Users::SessionsController < Devise::SessionsController
 include RackSessionFix
   respond_to :json
   # before_action :configure_sign_in_params, only: [:create]
-  skip_before_action :set_tenant
+  # skip_before_action :set_tenant
 
   private
 

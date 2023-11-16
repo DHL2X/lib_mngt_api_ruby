@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'current_user', to: "current_user#index"
+  put 'current_user/update_password', to: "current_user#update_password"
+  delete 'current_user', to: "current_user#destroy"
 
   api_version(:module => "V1", :header => {:name => "Api", :value => "v001"}) do
     resources :book
