@@ -3,6 +3,6 @@ class Server < ApplicationRecord
 
     private
     def create_tenant
-        Apartment::Tenant.create(subdomain)
+        Apartment::Tenant.create(domain)
     end
 end
