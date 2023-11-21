@@ -13,11 +13,8 @@ sudo docker-compose run app rails db:migrate
 
 *details testing with postman:
 
-localhost,lvh.me is public tenant
-vn.lvh.me is vn tenant
-eu.lvh.me is eu tenant
-
 header("Api"=>"v001") for versionist
+header("Server"=>"vn") for change tenant ("eu","public")
 
 POST http://localhost:3000/login //login(admin: long@gmail.com)
 {
@@ -27,7 +24,7 @@ POST http://localhost:3000/login //login(admin: long@gmail.com)
     }
 }
 
-POST eu.lvh.me:3000/signup or vn.lvh.me:3000/signup //signup to separate server
+POST lvh.me:3000/signup //signup to separate server
 {
     "user": {
         "email": "long8@gmail.com",
