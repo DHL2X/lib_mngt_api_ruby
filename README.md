@@ -1,6 +1,6 @@
 # README
 
-bundle install
+bundle install (then bin/dev)
 
 //pg_restore -U username -d new_database_name -1 -v "test_db_development.backup" to import DB if already have
 

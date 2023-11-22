@@ -15,6 +15,7 @@ gem 'factory_bot_rails'
 gem 'ros-apartment', require: 'apartment'
 gem 'versionist'
 gem 'ruby-kafka'
+gem 'sidekiq', '~> 6.5'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"

@@ -3,6 +3,7 @@ module V1
         before_action :authenticate_user!
 
         def index
+            HelloJob.perform_async(current_user.id)
             if current_user.admin?
                 leases = Lease.where("end_date > ?", Date.today)
                 leases_json_array = leases.map { |lease| LeaseRepresenter.new(lease).as_json }
@@ -17,6 +18,7 @@ module V1
         end
 
         def return_book
+            HelloJob.perform_async(current_user.id)
             begin
                 lease = Lease.find(params[:id])
                 if lease.user == current_user && lease.active?
@@ -36,6 +38,7 @@ module V1
         end
 
         def create
+            HelloJob.perform_async(current_user.id)
             user = User.find(current_user.id)
             book = Book.find(params[:book_id])
             # same_server = user.server && book.server && user.server.id == book.server.id #no needed

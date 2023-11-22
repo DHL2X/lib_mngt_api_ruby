@@ -1,4 +1,10 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  authenticate :user do # lamda{ |u| u.admin? }
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   get 'current_user', to: "current_user#index"
   put 'current_user/update_password', to: "current_user#update_password"
   delete 'current_user', to: "current_user#destroy"
