@@ -6,6 +6,7 @@ module Api
         def index
             books = Book.all
             book_json_array = books.map { |book| BookRepresenter.new(book).as_json }
+            KafkaService.producer_transaction(book_json_array,'book_index')
             render json: book_json_array
         rescue => e
             p "Error: #{e.full_message}"

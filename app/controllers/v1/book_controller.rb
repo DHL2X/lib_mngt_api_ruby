@@ -6,6 +6,7 @@ module V1
         def index
             books = Book.includes(:author).all #fixing N+1 query prob
             book_json_array = books.map { |book| BookRepresenter.new(book).as_json }
+            KafkaService.producer_transaction(book_json_array,'book_index')
             render json: book_json_array
         rescue => e
             p "Error: #{e.full_message}"

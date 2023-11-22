@@ -14,6 +14,7 @@ gem 'rack-cors'
 gem 'factory_bot_rails'
 gem 'ros-apartment', require: 'apartment'
 gem 'versionist'
+gem 'ruby-kafka'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"

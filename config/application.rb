@@ -3,6 +3,8 @@ require_relative "boot"
 require "rails/all"
 require 'apartment/elevators/subdomain'
 require_relative '../lib/apartment/custom_elevator'
+require_relative '../app/services/kafka_service'
+
 
 
 # Require the gems listed in Gemfile, including any gems
