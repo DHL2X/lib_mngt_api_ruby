@@ -16,6 +16,8 @@ gem 'ros-apartment', require: 'apartment'
 gem 'versionist'
 gem 'ruby-kafka'
 gem 'sidekiq', '~> 6.5'
+gem 'clockwork'
+gem 'byebug'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
